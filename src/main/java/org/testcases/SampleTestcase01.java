@@ -39,10 +39,15 @@ public class SampleTestcase01 {
             System.out.println(page.title());
             
             page.locator("(//a[normalize-space()='Create an Account'])[1]").click();
+            page.locator("//input[@id='firstname']").click();
             page.locator("//input[@id='firstname']").fill("Robert James");
+            page.locator("//input[@id='lastname']").click();
             page.locator("//input[@id='lastname']").fill("Schneider");
+            page.locator("//input[@id='email_address']").click();
             page.locator("//input[@id='email_address']").fill("bobby.schneider@gmail.com");
+            page.locator("//input[@id='password']").click();
             page.locator("//input[@id='password']").fill("4skYbT@!hkh6yCi");
+            page.locator("//input[@id='password-confirmation']").click();
             page.locator("//input[@id='password-confirmation']").fill("4skYbT@!hkh6yCi");
             page.locator("//button[@title='Create an Account']").click();
             
