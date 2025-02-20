@@ -29,11 +29,6 @@ public class SignInPageTestcase02 {
             Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false).setSlowMo(50));
             BrowserContext browsercontext = browser.newContext(new Browser.NewContextOptions().setViewportSize((int)width,(int) height));
             Page page = browsercontext.newPage();
-//            createnewCustomerAccountPage newcustomer = new createnewCustomerAccountPage(page);
-//            newcustomer.navigate();
-//            newcustomer.newCustomerURL();
-//            newcustomer.firstName("Robert James");
-//            
             page.navigate("https://magento.softwaretestingboard.com/");
             page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Sign In")).click();
             page.getByLabel("Email").click();

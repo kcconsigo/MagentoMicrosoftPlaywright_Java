@@ -30,11 +30,6 @@ public class CreateAccountTestcase01 {
             Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false).setSlowMo(50));
             BrowserContext browsercontext = browser.newContext(new Browser.NewContextOptions().setViewportSize((int)width,(int) height));
             Page page = browsercontext.newPage();
-//            createnewCustomerAccountPage newcustomer = new createnewCustomerAccountPage(page);
-//            newcustomer.navigate();
-//            newcustomer.newCustomerURL();
-//            newcustomer.firstName("Robert James");
-//            
             page.navigate("https://magento.softwaretestingboard.com/");
             System.out.println(page.title());
             
@@ -54,20 +49,6 @@ public class CreateAccountTestcase01 {
             String psTitle = page.title();
             psTitle = "Very Strong";
             System.out.print("Password Strength: " + psTitle);
-            
-//            page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Create an Account")).click();
-//            page.getByLabel("First Name").click();
-//            page.getByLabel("First Name").fill("Kclyn");
-//            page.getByLabel("Last Name").click();
-//            page.getByLabel("Last Name").fill("Cabelin");
-//            page.getByLabel("Email", new Page.GetByLabelOptions().setExact(true)).click();
-//            page.getByLabel("Email", new Page.GetByLabelOptions().setExact(true)).fill("kcconsigo@gmail.com");
-//            page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Password*").setExact(true)).click();
-//            page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Password*").setExact(true)).fill("Pa$$word12");
-//            page.getByLabel("Confirm Password").click();
-//            page.getByLabel("Confirm Password").fill("Pa$$word12");
-//            page.getByText("Password Strength: Strong").click();
-//            page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Create an Account")).click();
             
             playwright.close();
           }
