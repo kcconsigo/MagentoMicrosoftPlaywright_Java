@@ -49,10 +49,6 @@ public class HomePageTestcase01 {
             homePage.clickCreateAccountButton();
             
             
-            String psTitle = page.title();
-            psTitle = "Very Strong";
-            System.out.print("Password Strength: " + psTitle);
-            
             playwright.close();
           }
             
