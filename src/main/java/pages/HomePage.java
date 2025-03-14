@@ -1,15 +1,23 @@
 package pages;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 import com.microsoft.playwright.*;
 import com.microsoft.playwright.options.AriaRole;
 
-public class HomePage {
+import base.BasePage;
+
+public class HomePage extends BasePage {
 	
 	public Page page;
 	public Locator CreateAccountButton, CreateAccountLink;
 	
+	private static final Logger log = LogManager.getLogger(HomePage.class);
+	
 	
 	public HomePage(Page page) {
+		super(page);
 		this.page = page;
 //		this.firstName = page.locator("//input[@id='firstname']");
 //		this.lastName = page.locator("//input[@id='lastname']");
@@ -22,6 +30,7 @@ public class HomePage {
 	
 	public void clickAccountLinkPage() {
 		page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Create an Account")).click();
+		log.info("The browser has launched The Create New Customer Account Page ");
 	}
 	
 	public void clickCreateAccountButton() {
