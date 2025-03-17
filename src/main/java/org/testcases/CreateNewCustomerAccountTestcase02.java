@@ -6,7 +6,6 @@ import java.nio.file.Paths;
 import java.util.regex.Pattern;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
-import com.beust.jcommander.Parameters;
 import com.microsoft.playwright.*;
 import com.microsoft.playwright.options.AriaRole;
 import com.microsoft.playwright.options.LoadState;
@@ -34,6 +33,7 @@ public class CreateNewCustomerAccountTestcase02 {
 		try (Playwright playwright = Playwright.create()) {
             Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false).setSlowMo(50));
             BrowserContext browsercontext = browser.newContext(new Browser.NewContextOptions().setViewportSize((int)width,(int) height));
+            browsercontext.setDefaultTimeout(60000);
             browsercontext.tracing().start(new Tracing.StartOptions()
             		.setScreenshots(true)
             		.setSnapshots(true)

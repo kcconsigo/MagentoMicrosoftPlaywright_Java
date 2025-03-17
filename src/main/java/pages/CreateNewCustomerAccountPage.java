@@ -1,10 +1,16 @@
 package pages;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+import org.testcases.CreateNewCustomerAccountTestcase02;
+
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 
-public class CreateNewCustomerAccountPage {
+import base.BasePage;
+
+public class CreateNewCustomerAccountPage extends CreateNewCustomerAccountTestcase02 {
 	
 	private Page page;
 	private Locator FirstName;
@@ -14,7 +20,10 @@ public class CreateNewCustomerAccountPage {
 	private Locator ConfirmPassword;
 	private Locator CreateAccButton;
 	
+	private static final Logger log = LogManager.getLogger(CreateNewCustomerAccountPage.class);
+	
 	public CreateNewCustomerAccountPage(Page page) {
+		super();
 		this.page = page;
 		this.FirstName = page.locator("//input[@id='firstname']");
 		this.LastName = page.locator("//input[@id='lastname']");
@@ -25,6 +34,7 @@ public class CreateNewCustomerAccountPage {
 	}
 	public String createFirstName(String FirstName) {
 		page.locator("//input[@id='firstname']").fill("Robert James");
+		log.info("The First Name test field is filed ");
 		return FirstName;
 		
 	}
