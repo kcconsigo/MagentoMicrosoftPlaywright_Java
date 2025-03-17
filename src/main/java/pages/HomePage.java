@@ -5,6 +5,7 @@ import org.apache.log4j.Logger;
 
 import com.microsoft.playwright.*;
 import com.microsoft.playwright.options.AriaRole;
+import com.microsoft.playwright.options.WaitForSelectorState;
 
 import base.BasePage;
 
@@ -19,36 +20,13 @@ public class HomePage extends BasePage {
 	public HomePage(Page page) {
 		super(page);
 		this.page = page;
-//		this.firstName = page.locator("//input[@id='firstname']");
-//		this.lastName = page.locator("//input[@id='lastname']");
-//		this.Email = page.locator("//input[@id='email_address']");
-//		this.Password = page.locator("//input[@id='password']");
-//		this.ConfirmPassword = page.locator("//input[@id='password-confirmation']");
-		this.CreateAccountButton = page.locator("Create an Account");
 		this.CreateAccountLink = page.locator("Create an Account");
 	}
 	
 	public void clickAccountLinkPage() {
 		page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Create an Account")).click();
+		page.locator("Create an Account").waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.ATTACHED).setTimeout(60000));
 		log.info("The browser has launched The Create New Customer Account Page ");
 	}
 	
-	public void clickCreateAccountButton() {
-		page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Create an Account")).click();
-	}
-
-//	public String createPersonalInformation(String text) {
-//		firstName.fill(text);
-//		lastName.fill(text);
-//		Email.fill(text);
-//		Password.fill(text);
-//		ConfirmPassword.fill(text);
-//		return text;
-//		
-//	}
-	
-	public void createAccountBtn() {
-		CreateAccountButton.click();
-	}
-
 }
