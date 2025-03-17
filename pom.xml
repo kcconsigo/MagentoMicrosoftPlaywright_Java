@@ -16,12 +16,68 @@
       <artifactId>playwright</artifactId>
       <version>1.49.0</version>
     </dependency>
+<dependency>
+    <groupId>org.testng</groupId>
+    <artifactId>testng</artifactId>
+    <version>7.9.0</version>
+    <scope>test</scope>
+</dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-scratchpad -->
+<dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi-scratchpad</artifactId>
+    <version>5.3.0</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+<dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi-ooxml</artifactId>
+    <version>5.3.0</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.apache.xmlbeans/xmlbeans -->
+<dependency>
+    <groupId>org.apache.xmlbeans</groupId>
+    <artifactId>xmlbeans</artifactId>
+    <version>5.3.0</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml-schemas -->
+<dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi-ooxml-schemas</artifactId>
+    <version>4.1.2</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.dom4j/dom4j -->
+<dependency>
+    <groupId>org.dom4j</groupId>
+    <artifactId>dom4j</artifactId>
+    <version>2.1.4</version>
+</dependency>
+
 	<!-- https://mvnrepository.com/artifact/log4j/log4j -->
 <dependency>
     <groupId>log4j</groupId>
     <artifactId>log4j</artifactId>
     <version>1.2.17</version>
 </dependency>
+<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+<dependency>
+    <groupId>org.apache.logging.log4j</groupId>
+    <artifactId>log4j-core</artifactId>
+    <version>2.24.3</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
+<dependency>
+    <groupId>org.apache.logging.log4j</groupId>
+    <artifactId>log4j-api</artifactId>
+    <version>2.24.3</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc -->
+<dependency>
+    <groupId>com.microsoft.sqlserver</groupId>
+    <artifactId>mssql-jdbc</artifactId>
+    <version>12.9.0.jre11-preview</version>
+</dependency>
+
     <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
 	<dependency>
 	    <groupId>org.junit.jupiter</groupId>
