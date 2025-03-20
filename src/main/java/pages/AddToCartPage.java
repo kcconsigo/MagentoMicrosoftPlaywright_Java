@@ -13,7 +13,8 @@ public class AddToCartPage extends AddToCartTestCase03 {
 	
 	private Page page;
 	private Locator SignIn_Link, EmailLogin, PasswordLogin, SignIn_Button, SignOut_Button, SignOut_Link,
-	Men_menu, Tops_Menu, HoodiesSweetShirts_Menu, Size_Button, Color_Button, AddToCart_Button, Items_Link, ChecOut_button, Desc_TabPanel;
+	Men_menu, Tops_Menu, HoodiesSweetShirts_Menu, Size_Button, Color_Button, AddToCart_Button, Items_Link, ChecOut_button, Desc_TabPanel,
+	Next_Button;
 	
 	private static final Logger log = LogManager.getLogger(AddToCartPage.class);
 	
@@ -31,9 +32,10 @@ public class AddToCartPage extends AddToCartTestCase03 {
 		this.Size_Button = page.locator("S");
 		this.Color_Button = page.locator("Black");
 		this.AddToCart_Button = page.locator("button");
-		this.Items_Link = page.locator(" My Cart 4 4 items");
+		this.Items_Link = page.locator("//a[@class='action showcart']");
 		this.ChecOut_button = page.locator("Proceed to Checkout");
-		this.Desc_TabPanel = page.locator("div");
+		this.Desc_TabPanel = page.locator("Item in Cart ");
+		this.Next_Button = page.locator("Next");
 	}
 	public void addtocutSigninLink() {
 		page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Sign In")).click();
@@ -53,8 +55,8 @@ public class AddToCartPage extends AddToCartTestCase03 {
 	}
 	public void addtocustitemlistPage() {
 //		page.hover(null, null);
-        page.getByRole(AriaRole.MENUITEM, new Page.GetByRoleOptions().setName(" Men")).click();
-        page.getByRole(AriaRole.MENUITEM, new Page.GetByRoleOptions().setName(" Tops")).click();
+        page.getByRole(AriaRole.MENUITEM, new Page.GetByRoleOptions().setName(" Men")).first().hover();
+        page.getByRole(AriaRole.MENUITEM, new Page.GetByRoleOptions().setName(" Tops")).first().hover();
         page.getByRole(AriaRole.MENUITEM, new Page.GetByRoleOptions().setName("Hoodies & Sweatshirts")).click();
         page.locator("li").filter(new Locator.FilterOptions().setHasText("Mach Street Sweatshirt As low")).getByLabel("S", new Locator.GetByLabelOptions().setExact(true)).click();
         page.locator("li").filter(new Locator.FilterOptions().setHasText("Mach Street Sweatshirt As low")).getByLabel("Black").click();
@@ -62,11 +64,16 @@ public class AddToCartPage extends AddToCartTestCase03 {
         page.getByText("You added Mach Street").textContent();
 	}
 	public void addtocartitemlistPage() {
-        page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(" My Cart 4 4 items")).click();
+        page.locator("//a[@class='action showcart']").click();
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Proceed to Checkout")).click();
+	}
+	public void addtocartitemShippingPage() {
+		page.locator("#checkout-loader").isVisible();
         page.navigate("https://magento.softwaretestingboard.com/checkout/#shipping");
-        page.locator("#opc-sidebar").getByRole(AriaRole.TABPANEL).locator("div").filter(new Locator.FilterOptions().setHasText("Mach Street Sweatshirt Qty 4")).first().click();
-        page.getByText("Mach Street Sweatshirt Qty 4 $248.00 View Details Options Details Size S Color").textContent();
+        page.getByRole(AriaRole.TAB, new Page.GetByRoleOptions().setName("Item in Cart ")).click();
+        page.getByText("Order Summary").textContent();
+        page.getByLabel("Table Rate").check();
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Next")).click();
 	}
 	public void addtocustLogout() {
 		page.getByRole(AriaRole.BANNER).locator("button").filter(new Locator.FilterOptions().setHasText("Change")).click();
