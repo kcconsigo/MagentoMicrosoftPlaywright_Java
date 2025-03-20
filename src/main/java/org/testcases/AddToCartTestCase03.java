@@ -3,6 +3,8 @@ package org.testcases;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.List;
 
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserContext;
@@ -31,6 +33,11 @@ public class AddToCartTestCase03 {
 		System.out.println(width+"---"+height);
 		
 		try (Playwright playwright = Playwright.create()) {
+		      List<BrowserType> browserTypes = Arrays.asList(
+		    	        playwright.chromium(),
+		    	        playwright.webkit(),
+		    	        playwright.firefox()
+		    	      );
             Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false).setSlowMo(50));
             BrowserContext browsercontext = browser.newContext(new Browser.NewContextOptions().setViewportSize((int)width,(int) height));
             browsercontext.setDefaultTimeout(60000);
@@ -41,6 +48,9 @@ public class AddToCartTestCase03 {
             Page page = browsercontext.newPage();
             page.navigate("https://magento.softwaretestingboard.com/");
             browsercontext.tracing().stop(new Tracing.StopOptions().setPath(Paths.get("trace.zip")));
+            for (BrowserType browserType : browserTypes) {
+            	page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("screenshot-" + browserType.name() + ".png")));
+            }
             System.out.println(page.title());
             
             AddToCartPage addtoCartPage = new AddToCartPage(page);
