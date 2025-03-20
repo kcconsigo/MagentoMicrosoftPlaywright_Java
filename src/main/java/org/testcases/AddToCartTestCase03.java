@@ -50,6 +50,7 @@ public class AddToCartTestCase03 {
             addtoCartPage.addtocustLoginButton();
             addtoCartPage.addtocustitemlistPage();
             addtoCartPage.addtocartitemlistPage();
+            addtoCartPage.addtocartitemShippingPage();
 		    }
 	}
 
