@@ -61,6 +61,8 @@ public class AddToCartTestCase03 {
             addtoCartPage.addtocustitemlistPage();
             addtoCartPage.addtocartitemlistPage();
             addtoCartPage.addtocartitemShippingPage();
+            addtoCartPage.addtocartitemReviewPaymentsPage();
+            addtoCartPage.addtocartsuccessPage();
 		    }
 	}
 
