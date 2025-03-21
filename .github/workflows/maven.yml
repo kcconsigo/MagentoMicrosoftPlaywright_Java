@@ -9,9 +9,9 @@
 name: Playwright Tests
 on:
   push:
-    branches: [ main, master ]
+    branches: [ master ]
   pull_request:
-    branches: [ main, master ]
+    branches: [ master ]
 jobs:
   test:
     timeout-minutes: 60
@@ -23,7 +23,7 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
     - name: Build & Install
-      run: mvn -B install -D skipTests --no-transfer-progress
+      run: mvn clean
     - name: Ensure browsers are installed
       run: mvn exec:java -D exec.mainClass="org.testcases.AddToCartTestCase03"
     - name: Run tests
