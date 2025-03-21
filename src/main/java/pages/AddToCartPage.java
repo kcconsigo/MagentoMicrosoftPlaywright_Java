@@ -15,7 +15,7 @@ public class AddToCartPage extends AddToCartTestCase03 {
 	private Page page;
 	private Locator SignIn_Link, EmailLogin, PasswordLogin, SignIn_Button, SignOut_Button, SignOut_Link,
 	Men_menu, Tops_Menu, HoodiesSweetShirts_Menu, Size_Button, Color_Button, AddToCart_Button, Items_Link, ChecOut_button, Desc_TabPanel,
-	Next_Button, Link_Items, PlaceOrder_Button, Continue_Button, Items_LinkTo;
+	Next_Button, Link_Items, PlaceOrder_Button, Continue_Button;
 	
 	private static final Logger log = LogManager.getLogger(AddToCartPage.class);
 	
@@ -35,7 +35,6 @@ public class AddToCartPage extends AddToCartTestCase03 {
 		this.Color_Button = page.locator("Black");
 		this.AddToCart_Button = page.locator("Add to Cart");
 		this.Items_Link = page.locator(".minicart-wrapper");
-		this.Items_LinkTo = page.locator(".minicart-wrapper.active");
 		this.ChecOut_button = page.locator("Proceed to Checkout");
 		this.Next_Button = page.locator("Next");
 		this.PlaceOrder_Button = page.locator("Place Order");
@@ -67,6 +66,8 @@ public class AddToCartPage extends AddToCartTestCase03 {
         page.getByLabel("S", new Page.GetByLabelOptions().setExact(true)).click();
         page.getByLabel("Black").click();
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Add to Cart")).click();
+        page.locator("#product_addtocart_form div").filter(new Locator.FilterOptions().setHasText("Adding...")).nth(3).isDisabled();
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Add to Cart")).isDisabled();
 
 	}
 	public void addtocartitemlistPage() {
