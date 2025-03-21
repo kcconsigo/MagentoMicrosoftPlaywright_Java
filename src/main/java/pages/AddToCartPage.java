@@ -5,10 +5,10 @@ import org.apache.log4j.Logger;
 import org.testcases.AddToCartTestCase03;
 import org.testcases.CustomerLoginTestCase04;
 import org.testng.Assert;
-
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
+import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
 public class AddToCartPage extends AddToCartTestCase03 {
 	
@@ -57,7 +57,6 @@ public class AddToCartPage extends AddToCartTestCase03 {
 		page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Sign In")).click();
 	}
 	public void addtocustitemlistPage() {
-//		page.hover(null, null);
         page.getByRole(AriaRole.MENUITEM, new Page.GetByRoleOptions().setName(" Men")).first().hover();
         page.getByRole(AriaRole.MENUITEM, new Page.GetByRoleOptions().setName(" Tops")).first().hover();
         page.getByRole(AriaRole.MENUITEM, new Page.GetByRoleOptions().setName("Hoodies & Sweatshirts")).click();
@@ -66,10 +65,11 @@ public class AddToCartPage extends AddToCartTestCase03 {
         page.getByLabel("S", new Page.GetByLabelOptions().setExact(true)).click();
         page.getByLabel("Black").click();
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Add to Cart")).click();
-        page.locator("#product_addtocart_form div").filter(new Locator.FilterOptions().setHasText("Adding...")).nth(3).isDisabled();
-        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Add to Cart")).isDisabled();
+        Locator disabledButtonAddToCart = page.locator("#product-addtocart-button.action.primary.tocart");
+        assertThat(disabledButtonAddToCart).isEnabled();
 
 	}
+
 	public void addtocartitemlistPage() {
 		Locator spinner = page.locator("//span[@data-bind=\"css: { empty: !!getCartParam('summary_count') == false && !isLoading() }, blockLoader: isLoading\"]");
 		spinner.waitFor();
