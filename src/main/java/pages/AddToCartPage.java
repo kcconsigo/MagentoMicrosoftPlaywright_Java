@@ -82,16 +82,15 @@ public class AddToCartPage extends AddToCartTestCase03 {
 
 	}
 	public void addtocartitemShippingPage() {
-		Locator spinLoader = page.locator("#checkout-loader");
+		Locator spinLoader = page.locator(".checkout-index-index.page-layout-checkout");
 		spinLoader.waitFor();
 		spinLoader.isVisible();
 		spinLoader.count();
         page.getByLabel("Table Rate").check();
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Next")).click();
-        page.locator("div").filter(new Locator.FilterOptions().setHasText("Please wait...")).first().isVisible();
 	}
 	public void addtocartitemReviewPaymentsPage() {
-		Locator spinReview = page.locator("div").filter(new Locator.FilterOptions().setHasText("Please wait...")).first();
+		Locator spinReview = page.locator(".checkout-index-index.page-layout-checkout");
 		spinReview.waitFor();
 		spinReview.isVisible();
 		spinReview.count();
@@ -99,16 +98,15 @@ public class AddToCartPage extends AddToCartTestCase03 {
 	    page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Place Order")).click();
 	}
 	public void addtocartsuccessPage() {
-		Locator spinSuccess =  page.locator("div").filter(new Locator.FilterOptions().setHasText("Please wait...")).first();
-		spinSuccess.waitFor();
-		spinSuccess.isVisible();
-		spinSuccess.count();
+		Locator spinSuccessPage = page.locator(".checkout-onepage-success");
+		spinSuccessPage.waitFor();
+		spinSuccessPage.isVisible();
+		spinSuccessPage.count();
 		page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Continue Shopping")).click();
 	}
 	public void addtocustLogout() {
 		page.getByRole(AriaRole.BANNER).locator("button").filter(new Locator.FilterOptions().setHasText("Change")).click();
 	    page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Sign Out")).click();
-	    page.navigate("https://magento.softwaretestingboard.com/");
 	    
 	}
 
