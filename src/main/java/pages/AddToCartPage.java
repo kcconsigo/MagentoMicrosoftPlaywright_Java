@@ -25,8 +25,8 @@ public class AddToCartPage extends AddToCartTestCase03 {
 		this.EmailLogin = page.locator("Email");
 		this.PasswordLogin = page.locator("Password");
 		this.SignIn_Button = page.locator("Sign In");
-		this.SignOut_Button = page.locator("button");
-		this.SignOut_Link = page.locator("Sign Out");
+		this.SignOut_Button = page.locator("Sign Out");
+		this.SignOut_Link = page.locator("//div[@class='panel header']//button[@type='button']");
 		this.Men_menu = page.locator(" Men");
 		this.Tops_Menu = page.locator(" Tops");
 		this.HoodiesSweetShirts_Menu = page.locator("Hoodies & Sweatshirts");
@@ -82,7 +82,7 @@ public class AddToCartPage extends AddToCartTestCase03 {
 
 	}
 	public void addtocartitemShippingPage() {
-		Locator spinLoader = page.locator(".checkout-index-index.page-layout-checkout");
+		Locator spinLoader = page.locator("#checkout-loader");
 		spinLoader.waitFor();
 		spinLoader.isVisible();
 		spinLoader.count();
@@ -105,7 +105,7 @@ public class AddToCartPage extends AddToCartTestCase03 {
 		page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Continue Shopping")).click();
 	}
 	public void addtocustLogout() {
-		page.getByRole(AriaRole.BANNER).locator("button").filter(new Locator.FilterOptions().setHasText("Change")).click();
+		page.locator("//div[@class='panel header']//button[@type='button']").click();
 	    page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Sign Out")).click();
 	    
 	}
