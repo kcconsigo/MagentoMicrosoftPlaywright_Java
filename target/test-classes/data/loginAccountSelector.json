@@ -1,0 +1,10 @@
+{ 
+	"validCredentials": {
+		  "useremailInput": "Email",
+		  "passwordInput": "Password",
+		  "loginButton": "Sign In",
+		  "loginLink": "Sign In",
+		  "logoutButton": "button",
+		  "logoutLink": "Sign Out"
+  }
+}

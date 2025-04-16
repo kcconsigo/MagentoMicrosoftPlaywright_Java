@@ -1,0 +1,11 @@
+{
+    "validCredentials": {
+            "useremail": "bobby.schneider@gmail.com",
+            "userpassword": "4skYbT@!hkh6yCi"
+    },
+
+    "invalidCredentials": {
+            "useremail": "bobby.schneider@gmail.com.uk",
+            "userpassword": "4skYbT@!hkh6yCi*(&ER*"      
+    }
+}
