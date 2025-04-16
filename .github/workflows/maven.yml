@@ -23,8 +23,8 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
     - name: Build & Install
-      run: mvn clean
+      run: mvn -B install -D skipTests --no-transfer-progress
     - name: Ensure browsers are installed
-      run: mvn exec:java -D exec.mainClass="org.testcases.AddToCartTestCase03"
+      run: mvn exec:java -D exec.mainClass="org.testcases.CreateNewCustomerAccountTestcase02""
     - name: Run tests
       run: mvn test
